@@ -1,0 +1,208 @@
+/* ==========================================================================
+   BOILERPLATE STYLES
+   ========================================================================== */
+
+    /* ==========================================================================
+       COLORS
+       ========================================================================== */
+
+        @white: rgb(255, 255, 255);
+        @offWhite: rgb(247, 247, 247);
+        @greyLightest: rgb(238, 238, 238);
+        @greyLighter: rgb(221, 221, 221);
+        @greyLight: rgb(188, 188, 188);
+        @greyMid: rgb(122, 122, 122);
+        @greyDark: rgb(61, 61, 61);
+        @greyDarker: rgb(30, 30, 30);
+        @greyDarker: rgb(16, 16, 16);
+        @offBlack: rgb(8, 8, 8);
+        @black: rgb(0, 0, 0);
+
+        @blueAlpha75: rgba(0, 53, 255, 0.75);
+        @orange: rgb(255, 127, 0);
+        @orangeAlpha50: rgba(255, 127, 0, 0.5);
+
+    /* ==========================================================================
+       TEMPLATE VARIABLES
+       ========================================================================== */
+
+        @defaultColor: @greyDark;
+
+        @fontFamily: 'proxima-nova', sans-serif;
+        @fontFamilySatisfy: 'Satisfy', cursive;
+        @fontFamilyOswalt: 'Oswald', sans-serif;
+
+
+    /* ==========================================================================
+       MEDIA QUERIES
+       ========================================================================== */
+
+
+        @media0: ~"(min-width: 1440px)";
+        @media0_: ~"(max-width: 1439px)";
+
+        @media1: ~"(min-width: 1200px)";
+        @media1_: ~"(max-width: 1199px)";
+
+        @media2: ~"(min-width: 992px)";
+        @media2_: ~"(max-width: 991px)";
+
+        @media3: ~"(min-width: 768px)";
+        @media3_: ~"(max-width: 767px)";
+
+        @media4: ~"(min-width: 480px)";
+        @media4_: ~"(max-width: 479px)";
+
+
+    /* ==========================================================================
+       TEMPLATE MIXINS
+       ========================================================================== */
+
+        .displayInlineBlock(@vAlign: top){
+            display: inline-block;
+            *display: inline;
+            vertical-align: @vAlign;
+            *vertical-align: @vAlign;
+        }
+
+        .displayNone(){
+            display: none !important;
+        }
+
+        .displayTable(){
+            display: table !important;
+        }
+
+        .positionAbsolute(){
+            position: absolute !important;
+        }
+
+        .positionFixed(){
+            position: fixed !important;
+        }
+
+        .displayTableCell(@vAlign: middle) {
+            display: table-cell;
+            vertical-align: @vAlign;
+        }
+
+        .overflowScrollingTouch(){
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .fontAwsome(@icon){
+            @faPrefix: "fa-var-@{icon}";
+            .fa-icon();
+            content: @@faPrefix;
+        }
+        
+        .disableSelect(){
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+/* ==========================================================================
+   STICKY FOOTER
+   ========================================================================== */
+
+    html {
+        position: relative;
+        min-height: 100%;
+    }
+
+    body {
+        
+        font-family: @fontFamily;
+        overflow-y: scroll;
+    }
+    
+
+/* ==========================================================================
+   GLOBAL STYLES
+   ========================================================================== */
+
+    body{
+        background-color: @white;
+        letter-spacing: 0.3px;
+        font-family: @fontFamily;
+        color: @defaultColor;
+    }
+
+    .displayTableCell{
+        .displayTableCell();
+    }
+
+    .displayTable{
+        .displayTable();
+    }
+
+    .mm-page{
+        box-shadow: none !important;
+    }
+
+    #mm-navbar{
+        *{
+            // background-color: @greyMid !important;
+            font-family: @fontFamily !important;
+            text-transform: uppercase;
+            font-weight: 300;
+            letter-spacing: 0.7px;
+        }
+    }
+    .displayNone{
+    	.displayNone();
+    }
+
+
+/* ==========================================================================
+   APP STYLES
+   ========================================================================== */
+   section.game_overlay{
+   	height: 100vh;
+   	background-color: @blueAlpha75;
+   	.start_overlay{
+   		display: flex;
+   		height: 100%;
+   		.overlay_block{
+   			width: 100%;
+   			height: auto;
+   			margin: auto;
+   			text-align: center;
+   			color: @white;
+   			.overlay_game_title{
+   				font-family: @fontFamilySatisfy;
+   				font-size: 8rem;
+   				margin-bottom: 2rem;
+   			}
+   			.overlay_text_block{
+   				margin-bottom: 3rem;
+   				.overlay_text{
+   					font-family: @fontFamilyOswalt;
+   					font-size: 5rem;
+   				}	
+   			}
+   			
+   			.start_button{
+   				background-color: @orange;
+   				padding: 1rem;
+   				width: 50%;
+   				margin: 0 auto;
+   				border: 1px solid grey;
+   				border-radius: 2rem;
+   				transition: background-color .25s;
+   				cursor: pointer;
+   				span{
+   					text-transform: uppercase;
+   				}
+   				&:hover{
+					background-color: @orangeAlpha50;
+   				}
+   			}
+   		}
+   	}
+   }
+    

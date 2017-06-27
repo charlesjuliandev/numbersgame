@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Number guessing game</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Satisfy|Oswald" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+
+        .lastResult {
+            color: white;
+            padding: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="game_overlay">
+        <div class="start_overlay">
+            <div class="overlay_block">
+                
+                <div class="overlay_game_title">The Guessing Game</div>
+                <div class="overlay_text_block">
+                    <div class="overlay_text">10 Tries. 1 Number.</div>
+                    <div class="overlay_text">Do you have what it takes?</div>
+                </div>
+
+                <div class="start_button">
+                    <span>Play Game</span>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <section class="game_container displayNone">
+        <div class="game_wrapper">
+            <div class="container">
+                <h1>Number guessing game</h1>
+
+                <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or less. We'll tell you if your guess was too high or too low.</p>
+
+                <div class="form">
+                    <label for="guessField">Enter a guess: </label><input type="text" id="guessField" class="guessField">
+                    <input type="submit" value="Submit guess" class="guessSubmit">
+                </div>
+
+                <div class="resultParams">
+                    <p class="guesses"></p>
+                    <p class="lastResult"></p>
+                    <p class="lowOrHi"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+<script src="main.js"></script>
+</html>
