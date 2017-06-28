@@ -1,12 +1,17 @@
 (function($){
 
 	$(document).ready(function(){
-		console.log("test");
+		
 		var randomNumber = Math.floor(Math.random() * 100) +1;
 		// resuts DOM
 		var guesses = document.querySelector('.guesses');
 		var lastResult = document.querySelector('.lastResult');
 		var lowOrHi = document.querySelector('.lowOrHi');
+		var binary_search = $('<a/>');
+		binary_search.text('Binary Search');
+		var binary_search_url = 'https://www.khanacademy.org/computing/computer-science/algorithms/binary-search/a/binary-search';
+		binary_search.attr('target', "blank");
+		binary_search.attr('href', binary_search_url);
 
 		// guess DOM
 		var guessSubmit = document.querySelector('.guessSubmit');
@@ -42,6 +47,10 @@
 		    } else if (guessCount === 10) {
 		        lastResult.textContent = '!!!GAME OVER!!!';
 		        lastResult.textContent += `\n You Didn't Guess The Correct Number: ${randomNumber}`;
+		        lastResult.textContent += `\n Learn How to get the right answer by using a : ${randomNumber}`;
+		        $('.binary_help').append(binary_search);
+		        $('.binary_block').removeClass('displayNone')
+
 		        setGameOver();
 		    } else {
 		        lastResult.textContent = 'Wrong!';
