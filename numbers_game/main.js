@@ -9,7 +9,7 @@
 		var lowOrHi = document.querySelector('.lowOrHi');
 		var binary_search = $('<a/>');
 		binary_search.text('Binary Search');
-		var binary_search_url = 'https://www.khanacademy.org/computing/computer-science/algorithms/binary-search/a/binary-search';
+		var binary_search_url = 'https://www.wikiwand.com/en/Binary_search_algorithm#/History';
 		binary_search.attr('target', "blank");
 		binary_search.attr('href', binary_search_url);
 
@@ -54,7 +54,9 @@
 		        $('.binary_block').removeClass('displayNone')
 
 		        setGameOver();
-		    } else {
+		    } else if(guessCount >=7){
+		    	console.log(guessCount);
+		    }else {
 		        lastResult.textContent = 'Wrong!';
 		        lastResult.style.backgroundColor = 'red';
 		        if(userGuess < randomNumber) {
