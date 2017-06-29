@@ -22,13 +22,15 @@
 		guessField.focus();
 
 		var startGame = function(){
-			$('.start_button').off();
-			$('.start_button').on('click', function(e){
+			var start_button = document.querySelector('.start_button');
+			
+			start_button.removeEventListener('click', function(){});
+			start_button.addEventListener('click', function(e){
 				e.preventDefault();
+				document.querySelector('.game_overlay').classList.add('displayNone');
+				document.querySelector('.game_container').classList.remove('displayNone');
 				console.log("clicked");
-				$('.game_overlay').addClass('displayNone');
-				$('.game_container').removeClass('displayNone');
-			});
+			})
 
 		}
 
