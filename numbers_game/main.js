@@ -1,7 +1,13 @@
-(function($){
+(function(){
 
-	$(document).ready(function(){
-		
+	function ready(fn) {
+	  if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
+	    fn();
+	  } else {
+	    document.addEventListener('DOMContentLoaded', fn);
+	  }
+	}
+	ready(function(){
 		var randomNumber = Math.floor(Math.random() * 100) +1;
 		// resuts DOM
 		var guesses = document.querySelector('.guesses');
@@ -27,7 +33,7 @@
 			start_button.removeEventListener('click', function(){});
 			start_button.addEventListener('click', function(e){
 				e.preventDefault();
-				document.querySelector('.game_overlay').classList.add('displayNone');
+				document.querySelector('.game_overlay').classList.add('fade_out');
 				document.querySelector('.game_container').classList.remove('displayNone');
 				console.log("clicked");
 			})
@@ -104,13 +110,9 @@
 		var init = function(){
 			startGame();
 		}
-		init();
-	});
-
-
-
-
-})(jQuery);
+		init();	
+	})
+})();
 
 
 
