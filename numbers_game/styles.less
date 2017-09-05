@@ -18,7 +18,7 @@
         @offBlack: rgb(8, 8, 8);
         @black: rgb(0, 0, 0);
 
-        @blueAlpha75: rgba(0, 53, 255, 0.75);
+        @blue: rgb(64, 103, 255);
         @orange: rgb(255, 127, 0);
         @orangeAlpha50: rgba(255, 127, 0, 0.5);
 
@@ -131,6 +131,9 @@
         font-family: @fontFamily;
         color: @defaultColor;
     }
+    html{
+        font-size: 10px;
+    }
 
     .displayTableCell{
         .displayTableCell();
@@ -177,13 +180,13 @@
 
    .keyframes(slideUp; {
       from{ transform: translateY(0); overflow: hidden; }        
-       to{ transform: translateY(-100vh); overflow: hidden; height: 0;}
+       to{ overflow: hidden; height: 0; transform: translateY(-100vh);}
    });
 
 
    section.game_overlay{
    	height: 100vh;
-   	background-color: @blueAlpha75;
+   	background-color: @blue;
    	.start_overlay{
    		display: flex;
    		height: 100%;
@@ -234,5 +237,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      background-color: @white;
    }
-    
+
+    .game_wrapper{
+        .title_container{
+            text-align: center;
+            font-family: @fontFamilySatisfy;
+        }
+    }
