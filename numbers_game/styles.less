@@ -157,10 +157,30 @@
     	.displayNone();
     }
 
+    .keyframes(@name; @args) {
+      @-moz-keyframes @name { @args(); }
+      @-webkit-keyframes @name { @args(); }
+      @keyframes @name { @args(); }
+    }
+
+    .animation(@args) {
+      -webkit-animation: @args;
+      -moz-animation: @args;
+      animation: @args;
+    }
+
+
 
 /* ==========================================================================
    APP STYLES
    ========================================================================== */
+
+   .keyframes(slideUp; {
+      from{ transform: translateY(0); overflow: hidden; }        
+       to{ transform: translateY(-100vh); overflow: hidden; height: 0;}
+   });
+
+
    section.game_overlay{
    	height: 100vh;
    	background-color: @blueAlpha75;
@@ -204,5 +224,15 @@
    			}
    		}
    	}
+   }
+   section.fade_out{
+        .animation(slideUp 2s forwards);
+        
+   }
+   section.game_container{
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
    }
     
