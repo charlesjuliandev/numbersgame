@@ -8,11 +8,14 @@
 	  }
 	}
 	ready(function(){
+
+		// make random number
 		var randomNumber = Math.floor(Math.random() * 100) +1;
 		// resuts DOM
 		var guesses = document.querySelector('.guesses');
 		var lastResult = document.querySelector('.lastResult');
 		var lowOrHi = document.querySelector('.lowOrHi');
+		var lowGuess = document.querySelector('.lowGuess');
 		var binary_search = $('<a/>');
 		binary_search.text('Binary Search');
 		var binary_search_url = 'https://www.wikiwand.com/en/Binary_search_algorithm#/History';
@@ -33,9 +36,8 @@
 			start_button.removeEventListener('click', function(){});
 			start_button.addEventListener('click', function(e){
 				e.preventDefault();
-				document.querySelector('.game_overlay').classList.add('fade_out');
+				document.querySelector('.game_overlay').classList.add('slide_up');
 				document.querySelector('.game_container').classList.remove('displayNone');
-				console.log("clicked");
 			})
 
 		}
@@ -55,14 +57,17 @@
 		    } else if (guessCount === 10) {
 		        lastResult.textContent = '!!!GAME OVER!!!';
 		        lastResult.textContent += `\n You Didn't Guess The Correct Number: ${randomNumber}`;
-		        lastResult.textContent += `\n Learn How to get the right answer by using a : ${randomNumber}`;
+		        document.querySelector('.lowGuess').classList.add('displayNone');
 		        $('.binary_help').append(binary_search);
 		        $('.binary_block').removeClass('displayNone')
 
 		        setGameOver();
-		    } else if(guessCount >=7){
+		    } else if(guessCount >=7 && guessCount > 0){
 		    	console.log(guessCount);
-		    }else {
+		    	var guessesLeft = 10 - guessCount
+		    	lowGuess.textContent = `You have ${guessesLeft} guesses left`;
+		    	document.querySelector('.lowGuess').classList.remove('displayNone');
+		    } else {
 		        lastResult.textContent = 'Wrong!';
 		        lastResult.style.backgroundColor = 'red';
 		        if(userGuess < randomNumber) {
@@ -83,7 +88,7 @@
 		    guessSubmit.disabled = true;
 		    resetButton = document.createElement('button');
 		    resetButton.textContent = 'Start new game';
-		    document.body.appendChild(resetButton);
+		    document.querySelector('.container').appendChild(resetButton);
 		    resetButton.addEventListener('click', resetGame);
 		}
 
