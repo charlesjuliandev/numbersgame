@@ -62,17 +62,33 @@
                     <p>A random number has been selected between 1 and 100. See if you can guess it in 10 turns or less. We'll tell you if your guess was too high or too low.</p>
                 </div>
 
-                <div class="form">
-                    <label for="guessField">Enter a guess: </label><input type="text" id="guessField" class="guessField">
-                    <input type="submit" value="Submit guess" class="guessSubmit">
+                <div class="submit_guess form">
+                    <div class="guess_section">
+                        <label for="guessField">Enter a guess: </label><input type="text" id="guessField" class="guessField">
+                    </div>
+                    <br />
+                    <input type="submit" value="Submit guess" class="guessSubmit btn btn-primary">
                 </div>
 
-                <div class="resultParams">
-                    <p class="guesses"></p>
-                    <p class="lastResult"></p>
-                    <p class="lowOrHi"></p>
-                    <p class="lowGuess displayNone"></p>
+                <div class="resultParams displayNone">
+                    <div class="guess_container">
+                        <span class="guesses badge"></span> <span class="guessNumber"></span>
+                    </div>
+                    <div class="lastResultContainer label-danger">
+                        <span class="lastResult"></span> <span class="incorrect">X</span>
+                    </div>
+                    
+                    <div class="lowOrHiContainer">
+                        <p class="lowOrHi"></p>
+                    </div>
+                    <div class="lowGuessContainer">
+                        <p  class="lowGuess displayNone"></p>
+                    </div>
                     <div class="binary_block displayNone">Learn how to guess the number within 10 guees using the <span class="binary_help"></span> method</div>
+
+                    <div class="button_container">
+                        <a href="#" class="btn btn-primary displayNone newGame" role="button">Start New Game</a>
+                    </div>
                 </div>
             </div>
         </div>

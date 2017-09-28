@@ -1,6 +1,4 @@
-/* ==========================================================================
-   BOILERPLATE STYLES
-   ========================================================================== */
+
 
     /* ==========================================================================
        COLORS
@@ -28,7 +26,6 @@
 
         @defaultColor: @greyDark;
 
-        @fontFamily: 'proxima-nova', sans-serif;
         @fontFamilySatisfy: 'Satisfy', cursive;
         @fontFamilyOswalt: 'Oswald', sans-serif;
 
@@ -58,68 +55,10 @@
        TEMPLATE MIXINS
        ========================================================================== */
 
-        .displayInlineBlock(@vAlign: top){
-            display: inline-block;
-            *display: inline;
-            vertical-align: @vAlign;
-            *vertical-align: @vAlign;
-        }
-
         .displayNone(){
             display: none !important;
         }
 
-        .displayTable(){
-            display: table !important;
-        }
-
-        .positionAbsolute(){
-            position: absolute !important;
-        }
-
-        .positionFixed(){
-            position: fixed !important;
-        }
-
-        .displayTableCell(@vAlign: middle) {
-            display: table-cell;
-            vertical-align: @vAlign;
-        }
-
-        .overflowScrollingTouch(){
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .fontAwsome(@icon){
-            @faPrefix: "fa-var-@{icon}";
-            .fa-icon();
-            content: @@faPrefix;
-        }
-        
-        .disableSelect(){
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-/* ==========================================================================
-   STICKY FOOTER
-   ========================================================================== */
-
-    html {
-        position: relative;
-        min-height: 100%;
-    }
-
-    body {
-        
-        font-family: @fontFamily;
-        overflow-y: scroll;
-    }
-    
 
 /* ==========================================================================
    GLOBAL STYLES
@@ -128,34 +67,12 @@
     body{
         background-color: @white;
         letter-spacing: 0.3px;
-        font-family: @fontFamily;
         color: @defaultColor;
     }
     html{
         font-size: 10px;
     }
 
-    .displayTableCell{
-        .displayTableCell();
-    }
-
-    .displayTable{
-        .displayTable();
-    }
-
-    .mm-page{
-        box-shadow: none !important;
-    }
-
-    #mm-navbar{
-        *{
-            // background-color: @greyMid !important;
-            font-family: @fontFamily !important;
-            text-transform: uppercase;
-            font-weight: 300;
-            letter-spacing: 0.7px;
-        }
-    }
     .displayNone{
     	.displayNone();
     }
@@ -181,6 +98,11 @@
    .keyframes(slideUp; {
       from{ transform: translateY(0); overflow: hidden; }        
        to{ overflow: hidden; height: 0; transform: translateY(-100vh);}
+   });
+
+   .keyframes(fadeOut; {
+      from{ opacity: 1; overflow: hidden; }        
+       to{ opacity: 0; height: 0;}
    });
 
 
@@ -244,5 +166,108 @@
         .title_container{
             text-align: center;
             font-family: @fontFamilySatisfy;
+            h1{
+              font-size: 5rem;
+              margin-top: 0;
+              margin-bottom: 3rem;  
+            }
+            
+        }
+        .instructions_container{
+          margin-bottom: 3rem;
+          *{
+            &:last-child{
+              margin-bottom: 0;
+            }
+          }
+        }
+        .submit_guess{
+          margin-bottom: 2rem;
+          text-align: center;
+          .submit_guess{
+            
+            .guess_section{
+              margin-bottom: 1rem;
+              label{
+                padding-right: 1rem;
+              }  
+            }
+            
+          }
+        }
+        
+        .resultParams{
+          .guess_container{
+            margin-bottom: 2rem;
+            .guesses {
+              border-radius: 0px;
+            }
+          }
+
+          .lastResultContainer{
+            text-align: center;
+            height: 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+              .lastResult{
+                color: white;
+                padding: 3px;
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 2rem;
+              }
+              .incorrect{
+                  width: 28px;
+                  height: 28px;
+                  border-radius: 50%;
+                  border-color: red;
+                  font-size: 16px;
+                  color: white;
+                  line-height: 140%;
+                  text-align: center;
+                  background: red;
+                  border: 3px solid;
+                  font-weight: bold;
+              }
+          }
+          .lowOrHiContainer{
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: @white;
+            .lowOrHi{
+              margin-bottom: 0;
+            }
+          }
+          .lowAnswer{
+            background-color: blue;
+          }
+          .highAnswer{
+            background-color: pink;
+          }
+          .lastResultContainer.fadeOut{
+              .animation(fadeOut .25s forwards);
+          }
+          .lowGuessContainer{
+            margin-bottom: 2rem;
+              *{
+                margin-bottom: 0px;
+              }
+          }
+
+          .binary_block{
+            padding: 2rem 0rem;
+            color: #8a6d3b;
+            background-color: #fcf8e3;
+            border-color: #faebcc;
+            text-align: center;
+            margin-bottom: 2rem;
+          }
+          .button_container{
+            text-align: center;
+          }
         }
     }
